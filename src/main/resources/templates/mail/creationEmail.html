@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:lang="${#locale.language}" lang="en">
+  <head>
+    <title th:text="#{email.activation.title}">JHipster creation</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="icon" th:href="@{|${baseUrl}/favicon.ico|}" />
+  </head>
+  <body>
+    <p th:text="#{email.activation.greeting(${user.login})}">Dear</p>
+    <p th:text="#{email.creation.text1}">Congratulations!!!Your current and savings bank account has been created in Bank X and  You got 500 Rs. in your savings account on joining with us.</p>
+<!--    <p>-->
+<!--      <a th:with="url=(@{|${baseUrl}/account/reset/finish?key=${user.resetKey}|})" th:href="${url}" th:text="${url}">Login link</a>-->
+<!--    </p>-->
+    <p>
+      <span th:text="#{email.activation.text2}">Regards, </span>
+      <br />
+      <em th:text="#{email.signature}">Bank X</em>
+    </p>
+  </body>
+</html>

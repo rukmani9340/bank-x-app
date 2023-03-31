@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:lang="${#locale.language}" lang="en">
+<head>
+  <title th:text="#{email.activation.title}">JHipster creation</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="shortcut icon" th:href="@{|${baseUrl}/favicon.ico|}" />
+</head>
+<body>
+<p th:text="#{email.activation.greeting(${user.firstName+' '+user.lastName})}">
+  Dear
+</p>
+<p >
+  Your account has been created as branch manager, please login with :
+</p>
+username : &nbsp;<span th:text="${user.login}"> username :</span>
+password : &nbsp;<span th:text="${password}"> password :</span>
+<p>
+  Please find below link to login
+</p>
+<span th:text = "${url}">
+            <a th:href = "@{${url}}" />
+        </span>
+<p>
+  <span th:text="#{email.activation.text2}">Regards, </span>
+  <br/>
+  <em th:text="#{email.signature}">JHipster.</em>
+</p>
+</body>
+</html>

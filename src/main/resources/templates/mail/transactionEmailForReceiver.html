@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:lang="${#locale.language}" lang="en">
+  <head>
+    <title th:text="#{email.transaction.title}">JHipster creation</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="icon" th:href="@{|${baseUrl}/favicon.ico|}" />
+  </head>
+  <body>
+    <p th:text="#{email.transaction.greeting(${transaction.getAccountTo.getUser().getFirstName()} +' '+ ${transaction.getAccountTo.getUser().getLastName()})}">Dear </p>
+    <p><span th:text="#{email.transaction.text1(${transaction.getAccountTo().getAccountNo()})}" /> is credited for Rs. <span th:text="${transaction.getBalance()}" /> thru a/c no. <span th:text="${transaction.getAccountFrom().getAccountNo()}"/></p>
+    <p>
+      <span th:text="#{email.activation.text2}">Regards, </span>
+      <br />
+      <em th:text="#{email.signature}">Bank X</em>
+    </p>
+  </body>
+</html>
