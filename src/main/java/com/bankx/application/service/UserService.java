@@ -8,6 +8,7 @@ import com.bankx.application.repository.*;
 import com.bankx.application.security.AuthoritiesConstants;
 import com.bankx.application.security.SecurityUtils;
 import com.bankx.application.service.dto.AdminUserDTO;
+import com.bankx.application.service.dto.UserAccountDTO;
 import com.bankx.application.service.dto.UserDTO;
 
 import java.math.BigDecimal;
@@ -16,6 +17,7 @@ import java.time.temporal.ChronoUnit;
 import java.util.*;
 import java.util.stream.Collectors;
 
+import com.bankx.application.web.rest.errors.BadRequestAlertException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cache.CacheManager;
@@ -391,5 +393,17 @@ public class UserService {
         if (user.getEmail() != null) {
             Objects.requireNonNull(cacheManager.getCache(UserRepository.USERS_BY_EMAIL_CACHE)).evict(user.getEmail());
         }
+    }
+
+    public UserAccountDTO getBalance(String accountNo) {
+        UserAccountDTO userAccountDTO = new UserAccountDTO();
+        Optional<UserAccount> userAccount = userAccountRepository.findById(accountNo);
+        if(!userAccount.isPresent()){
+            throw new BadRequestAlertException("Account doesn't exist.");
+        }
+        userAccountDTO.setAccountNo(accountNo);
+        userAccountDTO.setAccountType(userAccount.get().getAccountType());
+        userAccountDTO.setBalance(userAccount.get().getBalance());
+        return userAccountDTO;
     }
 }

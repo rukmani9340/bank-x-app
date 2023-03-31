@@ -7,6 +7,7 @@ import com.bankx.application.service.MailService;
 import com.bankx.application.service.UserService;
 import com.bankx.application.service.dto.AdminUserDTO;
 import com.bankx.application.service.dto.PasswordChangeDTO;
+import com.bankx.application.service.dto.UserAccountDTO;
 import com.bankx.application.web.rest.errors.*;
 import com.bankx.application.web.rest.vm.KeyAndPasswordVM;
 import com.bankx.application.web.rest.vm.ManagedUserVM;
@@ -195,4 +196,10 @@ public class AccountResource {
                 password.length() > ManagedUserVM.PASSWORD_MAX_LENGTH
         );
     }
+
+    @GetMapping("/check/balance/{accountNo}")
+    public UserAccountDTO checkBalance(@PathVariable String accountNo) {
+        return userService.getBalance(accountNo);
+    }
+
 }
