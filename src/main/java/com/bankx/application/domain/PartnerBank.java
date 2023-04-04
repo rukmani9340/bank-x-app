@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.util.Objects;
 
 /**
- * An authority (a security role) used by Spring Security.
+ * A domain representing partner bank.
  */
 @Entity
 @Table(name = "partner_bank")

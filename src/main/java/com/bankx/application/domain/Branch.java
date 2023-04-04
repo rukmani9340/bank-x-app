@@ -9,7 +9,7 @@ import java.io.Serializable;
 import java.util.Objects;
 
 /**
- * An authority (a security role) used by Spring Security.
+ * A domain representing branch.
  */
 @Entity
 @Table(name = "branch")

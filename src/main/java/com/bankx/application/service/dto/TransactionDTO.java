@@ -4,6 +4,10 @@ import com.bankx.application.domain.UserAccount;
 import com.bankx.application.domain.Transaction;
 import com.bankx.application.enums.Status;
 
+
+/**
+ * A DTO representing Transaction.
+ */
 public class TransactionDTO {
 
     private String id;

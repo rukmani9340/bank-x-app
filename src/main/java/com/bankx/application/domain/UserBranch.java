@@ -1,9 +1,11 @@
 package com.bankx.application.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 
+/**
+ * A domain representing User Branch.
+ */
 @Entity
 public class UserBranch extends AbstractAuditingEntity{
 

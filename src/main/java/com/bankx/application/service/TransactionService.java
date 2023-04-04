@@ -26,7 +26,7 @@ import java.util.UUID;
 
 
 /**
- * Service class for managing bank.
+ * Service class for managing transaction.
  */
 @Service
 @Transactional
